@@ -1,0 +1,116 @@
+{% load static %}
+<!-- Header start -->
+{% if banner %}
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div>
+                    <a href="mailto:info@ewgroup.ae">
+                        <img src="{% static 'images/icons/mail.svg' %}" alt="mail"/>
+                        <p>info@ewgroup.ae</p>
+                    </a>
+                    <a href="tel:+971 52 100 1880">
+                        <img src="{% static 'images/icons/tel.svg' %}" alt="tel"/>
+                        <p>+971 52 100 1880</p>
+                    </a>
+                </div>
+
+                <ul id="socials">
+                    <li>
+                        <a href="#">
+                            <img src="{% static 'images/icons/telegram.svg' %}" alt="socials"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{% static 'images/icons/instagram.svg' %}" alt="socials"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{% static 'images/icons/facebook.svg' %}" alt="socials"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{% static 'images/icons/telegram.svg' %}" alt="socials"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{% static 'images/icons/twitter.svg' %}" alt="socials"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{% static 'images/icons/in.svg' %}" alt="socials"/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="container">
+                <a href="/" class="logo">
+                    <img src="{% static 'images/icons/logo.svg' %}" alt="LOGO"/>
+                </a>
+
+                <ul class="nav-list">
+                    <li><a href="{% url 'app:about' %}">About us</a></li>
+                    <li><a href="{% url 'app:why' %}">Why Eastwest</a></li>
+                    <li><a href="{% url 'app:service' %}">Our Services</a></li>
+                    <li><a href="{% url 'app:contact' %}">Contact us</a></li>
+                    <li><a href="/#faqs">FAQ</a></li>
+                </ul>
+
+                <div class="menu">
+                    <img src="{% static 'images/icons/menu.png' %}" alt="menu"/>
+                    <img src="{% static 'images/icons/cross.png' %}" alt="menu"/>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="container">
+            <div class="content">
+                <h2>We create solutions for your business</h2>
+                <p>
+                    East West - is your reliable partner in the supply of machinery and
+                    equipment for the mining industry, construction and road-building
+                    equipment, spare parts and lubricants from the world's leading
+                    manufacturers.
+                </p>
+
+                <button class="primary-btn">Learn more</button>
+            </div>
+
+            <div class="picture">
+                <img src="{% static 'images/buldozer.png' %}" alt="buldozer"/>
+            </div>
+        </div>
+    </header>
+{% else %}
+    <header class="header second-header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="/" class="logo">
+                    <img src="{% static 'images/icons/logo.svg' %}" alt="LOGO"/>
+                </a>
+
+                <ul class="nav-list">
+                    <li><a href="{% url 'app:about' %}">About us</a></li>
+                    <li><a href="{% url 'app:why' %}">Why Eastwest</a></li>
+                    <li><a href="{% url 'app:service' %}">Our Services</a></li>
+                    <li><a href="{% url 'app:contact' %}">Contact us</a></li>
+                    <li><a href="/#faqs">FAQ</a></li>
+                </ul>
+
+                <div class="menu">
+                    <img src="/images/icons/menu.png" alt="menu"/>
+                    <img src="/images/icons/cross.png" alt="menu"/>
+                </div>
+            </div>
+        </nav>
+    </header>
+{% endif %}
+<!-- Header end -->

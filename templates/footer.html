@@ -1,0 +1,84 @@
+{% load static %}
+<!-- Footer start -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div>
+                <a href="#">
+                    <img src="{% static 'images/icons/footer-logo.svg' %}" alt="logo"
+                    /></a>
+                <p>
+                    <a href="tel:+971 52 100 1880">+971 52 100 1880</a>
+                </p>
+
+                <a href="mailto:info@ewgroup.ae">info@ewgroup.ae</a>
+            </div>
+            <div>
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="{% url 'app:about' %}">About us</a></li>
+                    <li><a href="{% url 'app:why' %}">Why Eastwest</a></li>
+                    <li><a href="{% url 'app:service' %}">Our Services</a></li>
+                    <li><a href="{% url 'app:contact' %}">Contact us</a></li>
+                    <li><a href="/#faqs">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Subscribe</h2>
+                <form method="post">
+                    {% csrf_token %}
+                        <label>
+{#                            {{ form.mail }}#}
+                            <input type="email" placeholder="Get updates"/>
+                            <button style="border: 0; padding-top: 3px" type="submit">
+                            <svg
+                                    width="50"
+                                    height="50"
+                                    viewBox="0 0 50 50"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                        d="M0 0H44C47.3137 0 50 2.68629 50 6V44C50 47.3137 47.3137 50 44 50H0V0Z"
+                                        fill="#FFB400"
+                                />
+                                <path
+                                        d="M0 0H44C47.3137 0 50 2.68629 50 6V44C50 47.3137 47.3137 50 44 50H0V0Z"
+                                        stroke="#D6D6D6"
+                                />
+                                <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M27.2335 32L32.8898 26.4285C33.4106 25.9152 33.4106 25.0832 32.8898 24.5715L27.2335 19L25.3479 20.8581L28.7279 24.1867H18V26.8129H28.7279L25.3479 30.1427L27.2335 32Z"
+                                        fill="white"
+                                />
+                            </svg>
+                            </button>
+                        </label>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <div class="socials">
+                <a href="#">
+                    <img src="{% static 'images/icons/in-light.svg' %}" alt="jf"/>
+                </a>
+                <a href="#">
+                    <img src="{% static 'images/icons/facebook-light.svg' %}" alt="jf"/>
+                </a>
+                <a href="#">
+                    <img src="{% static 'images/icons/twitter-light.svg' %}" alt="jf"/>
+                </a>
+            </div>
+
+            <div>
+                <p>A product of</p>
+                <img src="{% static 'images/icons/footer-logo.svg' %}" alt=""/>
+            </div>
+
+            <p>© 2024<span id="date"></span>. All rights reserved</p>
+        </div>
+    </div>
+</footer>
+<!-- Footer end -->

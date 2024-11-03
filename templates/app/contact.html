@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        .alert {
+            padding: 15px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        .alert.success {
+            background-color: #4CAF50;
+        }
+
+        .alert.success::before {
+            content: '✔'; /* Success checkmark */
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+    <!-- Form section start -->
+    <section class="form-section">
+        <div class="container">
+            <h2>Get in touch with us. We're here to assist you.</h2>
+            {% for message in messages %}
+            	<div class="alert success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            
+            {{ form.errors }}
+            <form method="post">
+                {% csrf_token %}
+                <div>
+                    {{ form.full_name }}
+                    {{ form.mail }}
+                    {{ form.phone }}
+                </div>
+
+                <label>
+                    {{ form.content }}
+                </label>
+
+                <button type="submit">Leave us feedback</button>
+            </form>
+        </div>
+    </section>
+    <!-- Form section end -->
+
+    <!-- Contact info section start -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div>
+                <p>Contact Info</p>
+                <h2>We are always happy to assist you</h2>
+            </div>
+            <div>
+                <h3>Email Address</h3>
+                <h3>info@ewgroup.ae</h3>
+                <p>Assistance hours: Monday - Friday 8 am to 6 pm EST</p>
+            </div>
+            <div>
+                <h3>Number</h3>
+                <h3>+971 52 100 1880</h3>
+                <p>Assistance hours: Monday - Friday 8 am to 6 pm EST</p>
+            </div>
+        </div>
+    </section>
+    <!-- Contact info section end -->
+
+{% endblock %}

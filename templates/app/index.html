@@ -1,0 +1,320 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- About Section start -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="title">About us</h2>
+            <div class="content">
+                <div class="content-text">
+                    <ul>
+                        <li>
+                            EastWest is a trusted partner in the heavy machinery rental
+                            industry. Based in Dubai, we are committed to providing our
+                            clients with the latest and highest quality equipment. Our fleet
+                            includes excavators, bulldozers, and various other heavy
+                            machinery, ensuring that you can find the right equipment for
+                            any construction or industrial project.
+                        </li>
+                        <li>
+                            At EastWest, quality and reliability are our top priorities. We
+                            help optimize our clients' operations by providing the necessary
+                            machinery for their success. Our equipment undergoes regular
+                            maintenance to ensure continuous and efficient performance.
+                        </li>
+                        <li>
+                            Our team is always ready to assist you in finding the right
+                            equipment and renting it under convenient conditions. Partnering
+                            with EastWest means choosing reliable and effective solutions.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="content-img">
+                    <img src="{% static 'images/truck.jpg' %}" alt=""/>
+                </div>
+            </div>
+
+            <div class="cards">
+                {% for counter in counters %}
+                	<div class="card">
+                        <h2>{{ counter.title }}</h2>
+                        <p>{{ counter.count }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- About Section end -->
+
+    <!-- Why Us section start -->
+    <section class="why-us-section">
+        <div class="container">
+            <div class="why-us-top">
+                <h2 class="title">Why choose Eastwest?</h2>
+                <p>
+                    At EastWest, we combine quality, reliability, and customer-focused
+                    service to meet your heavy machinery needs. Our modern fleet is
+                    maintained to the highest standards, ensuring your projects run
+                    smoothly and efficiently.
+                </p>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <img src="{% static 'images/icons/checked.svg' %}" alt=""/>
+                    <h2>Expanding Our Fleet</h2>
+                    <p>
+                        We have grown our fleet to include a diverse range of modern and
+                        reliable machinery, ensuring we meet the evolving needs of our
+                        clients. From high-performance excavators to powerful bulldozers,
+                        our inventory is designed to support projects of all sizes
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/icons/checked.svg' %}" alt=""/>
+                    <h2>Client Satisfaction:</h2>
+                    <p>
+                        Our commitment to excellence is reflected in the high level of
+                        satisfaction among our clients. We take pride in the long-standing
+                        relationships we have built, with many clients returning to us for
+                        their equipment needs, knowing they can rely on our quality and
+                        service.
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="{% static 'images/icons/checked.svg' %}" alt=""/>
+                    <h2>Safety and Maintenance Excellence</h2>
+                    <p>
+                        We have implemented rigorous maintenance and safety protocols to
+                        ensure our machinery operates at peak efficiency and safety. This
+                        dedication has led to a track record of zero major incidents,
+                        positioning EastWest as a trusted partner in even the most
+                        demanding environments.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Us section end -->
+
+    <!-- Services section start -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="title">Our Services</h2>
+            <div class="services-wrapper">
+                <div class="cards" id="services">
+                    {% for service in services %}
+                        <div class="card" style="background-image: url({{ service.image.url }});background-size: cover">
+                            <h2>{{ service.title }}</h2>
+                        </div>
+                    {% endfor %}
+                </div>
+                <a href="{% url 'app:service' %}" class="secondary-btn">Learn more</a>
+            </div>
+        </div>
+    </section>
+    <!-- Services section end -->
+
+    <!-- Testimionals section start -->
+    <section class="testimionals-section">
+        <div class="container">
+            <h2 class="title">Testimionals</h2>
+
+            <div class="slider" id="slider">
+
+            </div>
+        </div>
+    </section>
+    <!-- Testimionals section end -->
+
+    <!-- FAQ section start -->
+    <section class="faq-section" id="faqs">
+        <div class="container" onclick="">
+            <h2 class="title">Frequently Asked Questions</h2>
+
+            <div>
+                <ul id="faq-left"></ul>
+
+                <div class="right" id="faq-right"></div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ section end -->
+
+    <!-- Partners section start -->
+    <section class="partners-section">
+        <div class="container">
+            <h2 class="title">Partners</h2>
+
+            <div class="cards" id="partners">
+                {% for partner in partners %}
+                	<a class="card" href="{% if partner.link %}{{ partner.link }}{% else %}#{% endif %}">
+                        <img src="{{ partner.image.url }}" alt="partners"/>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Partners section end -->
+
+
+    <script>
+
+        const sliderData = [
+            {% for feedback in testimonials %}
+                {
+                    id: {{ forloop.counter0 }},
+                    title: "{{ feedback.title }}",
+                    description: "{{ feedback.content }}",
+                    name: "{{ feedback.full_name }}",
+                    role: "{{ feedback.position }}",
+                    image: "{{ feedback.image.url }}",
+                },
+            {% endfor %}
+        ];
+
+        const slider = document.querySelector("#slider");
+
+        const changeSlider = (id) => {
+            slider.innerHTML = "";
+
+            slider.innerHTML = `
+          <div class="content">
+            <h2>${sliderData[id - 1].title}</h2>
+            <p>${sliderData[id - 1].description}</p>
+
+            <div>
+              <div>
+                <h4>${sliderData[id - 1].name}</h4>
+                <p>${sliderData[id - 1].role}</p>
+              </div>
+
+              <div class="slider-change">
+                <div class="slider-left" onclick="changeSlider(${
+                id <= 1 ? sliderData.length : id - 1
+            })">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="24"
+                    viewBox="0 0 12 24"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M10 19.438L8.95502 20.5L1.28902 12.71C1.10452 12.5197 1.00134 12.2651 1.00134 12C1.00134 11.7349 1.10452 11.4803 1.28902 11.29L8.95502 3.5L10 4.563L2.68202 12L10 19.438Z"
+                      fill="#444444"
+                    />
+                  </svg>
+                </div>
+                <div class="slider-right" onclick="changeSlider(${
+                id >= sliderData.length ? 1 : id + 1
+            })">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="24"
+                    viewBox="0 0 12 24"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1.99998 4.562L3.04498 3.5L10.711 11.29C10.8955 11.4803 10.9987 11.7349 10.9987 12C10.9987 12.2651 10.8955 12.5197 10.711 12.71L3.04498 20.5L1.99998 19.437L9.31798 12L1.99998 4.562Z"
+                      fill="#444444"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="img">
+            <img src="${sliderData[id - 1].image}" alt="person" />
+          </div>
+  `;
+        };
+
+        changeSlider(1);
+
+
+        let faqQuestionsData = [
+            {% for faq in faqs %}
+                {
+                    id: {{ forloop.counter0 }},
+                    text: "{{ faq.title }}",
+                },
+            {% endfor %}
+        ];
+
+        let faqsData = [
+            {% for faq in faqs %}
+                {
+                    title: "{{ faq.title }}",
+                    description: "{{ faq.content }}",
+                },
+            {% endfor %}
+        ];
+
+        let activeFAQData = 0;
+        console.log(faqQuestionsData)
+        console.log(faqsData)
+        const faqQuestion = document.querySelector("#faq-left");
+        const faqAnswers = document.querySelector("#faq-right");
+
+        const changeFaqData = (id) => {
+            activeFAQData = id;
+
+            faqQuestion.innerHTML = "";
+            faqAnswers.innerHTML = "";
+
+            faqQuestionsData.map(
+                (item) =>
+                    (faqQuestion.innerHTML += `
+
+    <div class="${
+                        activeFAQData == item.id ? "active" : ""
+                    }" onclick="changeFaqData(${item.id})">
+      <label >
+          <input type="radio"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="12" fill="#E5E5E5"/>
+          </svg>
+          <p>${item.text}</p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M8 4L16 12L8 20" stroke="#777777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </label>
+
+        <div class="${
+                        activeFAQData == item.id
+                            ? "faq-que-ans faq-que-ans_active"
+                            : "faq-que-ans"
+                    }">
+          <h2>${faqsData[item.id].title}</h2>
+          <p>${faqsData[item.id].description}</p>
+        </div>
+    </div>
+    `)
+            );
+
+            changeFaqClass(id);
+
+            faqAnswers.innerHTML += `
+    <h2>${faqsData[id].title}</h2>
+    <p>${faqsData[id].description}</p>
+    `;
+        };
+
+        changeFaqData(0);
+
+        function changeFaqClass(id) {
+            const faqs = document.querySelectorAll(".faq-que-ans");
+
+            faqs[id].classList.toggle(".faq-que-ans_active");
+        }
+
+    </script>
+
+{% endblock %}

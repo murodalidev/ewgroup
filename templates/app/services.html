@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- Services Page section start -->
+    <section class="services-page-section">
+        <div class="container">
+            <h2>
+                Eastwest offers reliable heavy truck rentals in Dubai with flexible
+                solutions.
+            </h2>
+            <p>
+                With a modern fleet, experienced professionals, and a commitment to
+                excellence, we deliver reliable transportation solutions that ensure
+                your cargo is handled safely and efficiently.
+            </p>
+        </div>
+        <div class="cards">
+            {% for service in services %}
+                <div class="card">
+                    <div>
+                        <div>
+                            <img src="{{ service.image.url }}" alt="services img"/>
+                        </div>
+                        <div>
+                            <h3>{{ service.title }}</h3>
+                            <p>{{ service.content }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- Services Page section end -->
+
+{% endblock %}

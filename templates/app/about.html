@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Solutions section start -->
+    <section class="solutions-section">
+        <div class="container">
+            <h2>Delivering the best heavy machinery solutions for your projects</h2>
+            <p>
+                We are a team of professionals passionate about providing reliable
+                heavy machinery solutions. At EastWest, we believe in driving progress
+                and supporting growth through exceptional service and quality
+                equipment.
+            </p>
+
+            <div class="cards">
+                <div class="card">
+                    <img src="{% static 'images/icons/vision.svg' %}" alt="vision"/>
+                    <div>
+                        <h3>Our Vision</h3>
+                        <p>
+                            At EastWest, our vision is to be the leading provider of heavy
+                            machinery rental solutions in the Middle East, recognized for
+                            our commitment to quality, innovation, and customer
+                            satisfaction. We strive to empower our clients by delivering
+                            reliable equipment and exceptional service, enabling them to
+                            build the future with confidence. Our goal is to set new
+                            standards in the industry, fostering growth and development in
+                            the communities we serve while maintaining a steadfast focus on
+                            sustainability and safety.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="{% static 'images/icons/mission.svg' %}" alt="mission"/>
+                    <div>
+                        <h3>Our Mission</h3>
+                        <p>
+                            Our mission at EastWest is to deliver high-quality, reliable
+                            heavy machinery rental solutions that drive the success of our
+                            clients' projects. We are committed to providing exceptional
+                            customer service, maintaining a modern and well-maintained
+                            fleet, and fostering strong partnerships built on trust and
+                            integrity. We aim to continuously innovate, ensuring safety,
+                            efficiency, and sustainability in everything we do, while
+                            contributing to the growth and development of the region.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Solutions section end -->
+
+    <!-- Professionals section start -->
+    <section class="professionals-section">
+        <div class="container">
+            <h2>Experienced Professionals with Best Service</h2>
+            <p>
+                Our team consists of experienced professionals and is highly committed
+                to providing the best service to our customers.
+            </p>
+
+            <div class="cards">
+                {% for team in teams %}
+                    <div class="card">
+                        <img src="{{ team.image.url }}" alt="professionals img">
+
+                        <div class="card-content">
+                            <h3>{{ team.full_name }}</h3>
+                            <p>{{ team.position }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Professionals section end -->
+
+{% endblock %}

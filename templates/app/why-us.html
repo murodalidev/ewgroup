@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <section class="why-us-page-section">
+      <div class="container">
+        <h2>WHY CHOOSE US</h2>
+
+        <div class="cards">
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer start -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div>
+            <a href="#">
+              <img src="../../static/images/icons/footer-logo.svg" alt="logo"
+            /></a>
+            <p>
+              <a href="tel:+971 52 100 1880">+971 52 100 1880</a>
+            </p>
+
+            <a href="mailto:info@ewgroup.ae">info@ewgroup.ae</a>
+          </div>
+          <div>
+            <h2>Quick Links</h2>
+            <ul>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Our Services</a></li>
+              <li><a href="#">Why choose us</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Subscribe</h2>
+            <label>
+              <input type="email" placeholder="Get updates" />
+
+              <svg
+                width="50"
+                height="50"
+                viewBox="0 0 50 50"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0H44C47.3137 0 50 2.68629 50 6V44C50 47.3137 47.3137 50 44 50H0V0Z"
+                  fill="#FFB400"
+                />
+                <path
+                  d="M0 0H44C47.3137 0 50 2.68629 50 6V44C50 47.3137 47.3137 50 44 50H0V0Z"
+                  stroke="#D6D6D6"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M27.2335 32L32.8898 26.4285C33.4106 25.9152 33.4106 25.0832 32.8898 24.5715L27.2335 19L25.3479 20.8581L28.7279 24.1867H18V26.8129H28.7279L25.3479 30.1427L27.2335 32Z"
+                  fill="white"
+                />
+              </svg>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <div class="socials">
+            <a href="#">
+              <img src="../../static/images/icons/in-light.svg" alt="jf" />
+            </a>
+            <a href="#">
+              <img src="../../static/images/icons/facebook-light.svg" alt="jf" />
+            </a>
+            <a href="#">
+              <img src="../../static/images/icons/twitter-light.svg" alt="jf" />
+            </a>
+          </div>
+
+          <div>
+            <p>A product of</p>
+            <img src="../../static/images/icons/footer-logo.svg" alt="" />
+          </div>
+
+          <p>© <span id="date"></span>. All rights reserved</p>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer end -->
+
+    <script>
+
+      const menuIcon = document.querySelector(".menu");
+      const menuList = document.querySelector(".nav-list");
+
+      menuIcon.addEventListener("click", () => {
+        menuIcon.classList.toggle("menu-active");
+        menuList.classList.toggle("nav-list_active");
+      });
+
+      const navbar = document.querySelector(".navbar");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          navbar.classList.add("fixed");
+        } else {
+          navbar.classList.remove("fixed");
+        }
+      });
+
+      const data = [
+        {
+          id: 1,
+          ind: "01",
+          title: "The best price",
+          description:
+            "A project is an activiry of service and thus activities that are under taken to accomodate outline.",
+        },
+        {
+          id: 2,
+          ind: "02",
+          title: "Daily Consultant",
+          description:
+            "One of the most common competency based on questions for any sequiring some project that make client for easy consulting about the property.",
+        },
+        {
+          id: 3,
+          ind: "03",
+          title: "Custon design",
+          description:
+            "A project is defined as a sequence of tasks that must be compeleted to attain a certain outcome. Accoirding to the project with custom design.",
+        },
+        {
+          id: 4,
+          ind: "04",
+          title: "Premium Quailty",
+          description:
+            "Make sure that all we use is premium quality and taking no longer than deadlines. This will get the ball rolling and imporve your confdence.",
+        },
+      ];
+
+      const cards = document.querySelector(".cards");
+
+      data.map((item) => {
+        return (cards.innerHTML += `
+        <div class="card">
+            <span>${item.ind}</span>
+            <div>
+              <h3>${item.title}</h3>
+              <p>
+                ${item.description}
+              </p>
+            </div>
+          </div>
+        `);
+      });
+    </script>
+{% endblock %}
