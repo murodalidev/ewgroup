@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 
 class BaseModel(models.Model):
@@ -51,7 +52,7 @@ class Testimonial(BaseModel):
 
 class FAQ(BaseModel):
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = HTMLField()
 
     def __str__(self):
         return self.title
