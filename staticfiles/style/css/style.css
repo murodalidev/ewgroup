@@ -955,8 +955,9 @@ html {
   flex: 1;
   position: relative;
   padding: 10px 10px 32px;
-  border: none;
-  border-bottom: 1px solid #e2d9d9;
+  border: 1px solid;
+  /*border: none;*/
+  /*border-bottom: 1px solid #e2d9d9;*/
   outline: none;
   color: var(--2nd, #000);
   font-family: Inter;
@@ -975,9 +976,10 @@ html {
   font-weight: 400;
   line-height: 36px;
   /* 180% */
-  border: none;
+  /*border: none;*/
   outline: none;
-  border-bottom: 1px solid #e2d9d9;
+  border: 1px solid;
+  /*border-bottom: 1px solid #e2d9d9;*/
   resize: vertical;
   padding: 10px 10px 100px;
 }
