@@ -639,6 +639,9 @@ html {
   .faq-section .container > div > div {
     display: none !important;
   }
+  .faq-section .container > div ul {
+    width: 100%;
+  }
   .faq-section .container .faq-que-ans {
     display: block !important;
     max-height: 0;

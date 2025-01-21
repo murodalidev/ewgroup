@@ -47,28 +47,28 @@
     <!-- Solutions section end -->
 
     <!-- Professionals section start -->
-    <section class="professionals-section">
-        <div class="container">
-            <h2>Experienced Professionals with Best Service</h2>
-            <p>
-                Our team consists of experienced professionals and is highly committed
-                to providing the best service to our customers.
-            </p>
-
-            <div class="cards">
-                {% for team in teams %}
-                    <div class="card">
-                        <img src="{{ team.image.url }}" alt="professionals img">
-
-                        <div class="card-content">
-                            <h3>{{ team.full_name }}</h3>
-                            <p>{{ team.position }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
+{#    <section class="professionals-section">#}
+{#        <div class="container">#}
+{#            <h2>Experienced Professionals with Best Service</h2>#}
+{#            <p>#}
+{#                Our team consists of experienced professionals and is highly committed#}
+{#                to providing the best service to our customers.#}
+{#            </p>#}
+{##}
+{#            <div class="cards">#}
+{#                {% for team in teams %}#}
+{#                    <div class="card">#}
+{#                        <img src="{{ team.image.url }}" alt="professionals img">#}
+{##}
+{#                        <div class="card-content">#}
+{#                            <h3>{{ team.full_name }}</h3>#}
+{#                            <p>{{ team.position }}</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
     <!-- Professionals section end -->
 
 {% endblock %}
