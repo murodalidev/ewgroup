@@ -640,7 +640,7 @@ html {
     display: none !important;
   }
   .faq-section .container > div ul {
-    width: 100%;
+    width: 100% !important;
   }
   .faq-section .container .faq-que-ans {
     display: block !important;
