@@ -90,7 +90,7 @@ html {
   font-size: 15px;
   font-weight: 500;
   line-height: 27px;
-  max-width: 80vw !important;
+  /*max-width: 80vw !important;*/
   overflow: hidden !important;
 }
 .header-top div {
@@ -1014,7 +1014,7 @@ html {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  max-width: 216px;
+  /*max-width: 216px;*/
 }
 .contact-info-section .container div h3 {
   color: var(--2nd, #000);
@@ -1275,7 +1275,7 @@ html {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    max-width: 216px;
+    /*max-width: 216px;*/
   }
   .contact-info-section .container div h3 {
     font-size: 18px;
